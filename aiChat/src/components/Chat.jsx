@@ -1,21 +1,22 @@
 import React from "react";
 import Line from "./Line";
 
-const Chat = ({messages}) => {
-  console.log("MM", messages)
-
-  React.useEffect(() => {
-
-  }, [messages])
+const Chat = ({ messages }) => {
+  const ref = React.useRef(null)
 
   const drawChats = () => {
     return messages.map((message, index) => {
-      
-      return (
-        <Line message={message} key={index}/>
-      )
-    })
+      return <Line message={message} key={index} />;
+    });
+  };
+
+  const scrollToBottom = () => {
+    ref.current.scrollIntoView({behavior: "smooth"})
   }
+
+  React.useEffect(() => {
+    scrollToBottom();
+  }, [messages])
 
   return (
     <div id="chat">
@@ -26,8 +27,9 @@ const Chat = ({messages}) => {
         <div className="chat_box mine">Hi!</div>
       </div>
       {drawChats()}
+      <div className="bottom" ref={ref}></div>
     </div>
-  )
-}
+  );
+};
 
 export default Chat;
