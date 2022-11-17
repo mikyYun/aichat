@@ -1,20 +1,9 @@
 import React from "react";
 
-const List = ({avatar}) => {
-  const [selectedAvatar, setSelectedAvatar] = React.useState(1);
-
-  React.useEffect(() => {
-    setSelectedAvatar(avatar)
-  }, [avatar])
-
-  const select = (e) => {
-    const val = Number(e.target.getAttribute("value"))
-    if (!val) return;
-    setSelectedAvatar(val);
-  }
+const List = ({avatar, selectAvatar}) => {
 
   const selectedClassName = (index) => {
-    return selectedAvatar === index + 1 ? "avatar_container selected" : "avatar_container";
+    return avatar === index + 1 ? "avatar_container selected" : "avatar_container";
   }
 
 
@@ -28,7 +17,7 @@ const List = ({avatar}) => {
             alt="avatar"
             className="avatar"
             value={avatar}
-            onClick={select}
+            onClick={selectAvatar}
           />
         </div>
       );

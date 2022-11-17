@@ -3,6 +3,7 @@ import { sending } from "../api/fetch";
 
 const Text = ({ updateMessages }) => {
   const [message, setMessage] = React.useState("");
+  const DENY_MESSAGE = "Sorry I'm busy, talk to me later";
 
   const updateMessage = (e) => {
     const msg = e.target.value;
@@ -20,14 +21,10 @@ const Text = ({ updateMessages }) => {
     clearMessage();
     await sending(message)
       .then((res) => {
-        const response = res.data.response;
-        receiveMessage(response);
+        const msg = res.data.response;
+        msg ? updateMessages(msg, false) : updateMessages(DENY_MESSAGE, false);
       })
       .catch((err) => console.error("API ERROR", err));
-  };
-
-  const receiveMessage = (msg) => {
-    updateMessages(msg, false);
   };
 
   return (
