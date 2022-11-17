@@ -3,6 +3,7 @@ import "./App.scss";
 
 import Text from "./components/Text";
 import Chat from "./components/Chat";
+import Header from "./components/Header";
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Chat messages={messages} />
       <Text updateMessages={updateMessages} />
     </div>

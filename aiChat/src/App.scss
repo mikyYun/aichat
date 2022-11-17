@@ -1,10 +1,21 @@
 .App {
   margin: 0 auto;
   max-width: 500px;
+  .header {
+    padding: 1rem;
+    .avatar_container {
+      .avatar {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+      }
+    }
+    // background-color: black;
+  }
   #chat {
     height: 350px;
     overflow-y: scroll;
-    border: 1px solid rgb(193, 199, 255);
+    border: 2px solid rgb(193, 199, 255);
     .line {
       margin-top: 10px;
       display: flex;
@@ -13,9 +24,12 @@
         padding: 5px;
         max-width: 200px;
         word-wrap: break-word;
+        padding: 0 1rem;
+        border-radius: 0 .5rem .5rem 0;
         &.mine {
         background-color: rgb(193, 199, 255);
         margin-left: auto;
+        border-radius: .5rem 0 0 .5rem;
         }
       }
     }
