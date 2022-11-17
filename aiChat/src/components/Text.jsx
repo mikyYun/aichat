@@ -13,15 +13,22 @@ const Text = ({updateMessages}) => {
     setMessage("")
   }
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     // console.log(message)
+    if (!message) return; 
     updateMessages(message, true)
     clearMessage();
+    await sending(message)
+      .then(res => {
+        const response = res.data.response;
+        // return response;
+        receiveMessage(response)
+      })
+      .catch(err => console.error("API ERROR", err))
+
   }
 
-  const receiveMessage = () => {
-    const msg = "THIS"
-
+  const receiveMessage = (msg) => {
     updateMessages(msg, false)
   }
 
