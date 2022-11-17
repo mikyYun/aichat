@@ -1,8 +1,13 @@
 import React from "react";
 import getImageNumber from "../helpers/getImage";
 
-const Header = () => {
-  const avatar = getImageNumber();
+const Header = ({avatar, updateAvatar}) => {
+  // const [avatar, setAvatar] = React.useState(1)
+
+  // const updateAvatar = () => {
+  //   const newAvatar = getImageNumber();
+  //   setAvatar(newAvatar)
+  // }
 
   return (
     <div className="header">
@@ -14,6 +19,7 @@ const Header = () => {
         />
       </div>
       My AI Friend
+      <button onClick={updateAvatar} className="button_switch">Switch AI</button>
     </div>
   );
 };
