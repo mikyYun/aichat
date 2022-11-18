@@ -1,15 +1,24 @@
+$defaultColor: #350d36;
+$backgroundColor: #bebeff;
+$lightColor: #eee;
+$strongColor: #2bac76;
+$sideColor: #1164a3;
+
 .App {
   margin: 0 auto;
-  max-width: 500px;
+  // max-width: 800px;
   overflow: hidden;
   position: relative;
-  padding-left: 7rem;
+  padding-left: 6rem;
+  // min-width: 320px;
+  height: 70vh;
+  margin: 0 auto;
   // LIST
   .list {
     position: absolute;
     left: 0;
     width: 6rem;
-    background-color: #bebeff;
+    background-color: $sideColor;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -27,44 +36,71 @@
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
-        border: 2px solid white;
+        border: 2px solid #eee;
+        &:hover {
+          border: 2px solid $strongColor;
+        }
       }
       &.selected {
-      .avatar {
-        border: 2px solid #7c7ce2;
-      }
-      width: 2.1rem;
-      height: 2.1rem;
+        .avatar {
+          border: 2px solid $strongColor;
+        }
+        width: 2.1rem;
+        height: 2.1rem;
       }
     }
   }
   // CHAT HEADER
   .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
+    padding: 0 1rem;
+    height: 200px;
+    padding-top: 100px;
+    background-color: $backgroundColor;
+    position: relative;
+    .controller {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      padding-right: 1rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .search_input {
+        margin: auto;
+        padding-left: 0.5rem;
+      }
+      .search {
+        background-color: inherit;
+        border: none;
+        cursor: pointer;
+      }
+    }
     .avatar_container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       .avatar {
         width: 4rem;
         height: 4rem;
         border-radius: 50%;
       }
-    }
-    button.button_switch {
-      border-radius: 15px;
-      background-color: #d5d5ff;
-      padding: 10px;
-      border: none;
-      cursor: pointer;
+      button.button_switch {
+        border-radius: 15px;
+        background-color: $backgroundColor;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
     }
   }
   // CHAT
   #chat {
     height: 30rem;
+    height: calc(100% - 200px - 2rem);
     overflow-y: scroll;
-    border: 2px solid rgb(193, 199, 255);
-    scrollbar-width: none;
+    border: 0.5rem solid $backgroundColor;
     -ms-overflow-style: none;
     &::-webkit-scrollbar {
       display: none;
@@ -74,10 +110,9 @@
       display: flex;
       .chat_box {
         background-color: #eee;
-        padding: 5px;
-        max-width: 200px;
+        max-width: 20rem;
         word-wrap: break-word;
-        padding: 0 1rem;
+        padding: 0.5rem 1rem;
         border-radius: 0 0.5rem 0.5rem 0;
         &.mine {
           background-color: rgb(193, 199, 255);
@@ -86,7 +121,6 @@
         }
         &.typing {
           width: 3rem;
-          height: 3rem;
           background: url("./resources/typing/TypingStatus.gif");
           background-size: contain;
         }
@@ -94,6 +128,43 @@
     }
   }
   #text {
-    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    height: 2rem;
+    input {
+      width: 100%;
+      padding-left: 0.5rem;
+      background-color: $lightColor;
+    }
+    button {
+      background-color: $strongColor;
+      width: 8rem;
+      padding-right: 2rem;
+      position: relative;
+      border: 1px solid $lightColor;
+      color: $sideColor;
+      .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+          color: $lightColor;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .App {
+    padding-left: 3rem;
+    .list {
+      width: 3rem;
+    }
   }
 }

@@ -53,7 +53,7 @@ function App() {
   return (
     <div className="App">
       <List avatar={avatar} selectAvatar={selectAvatar} />
-      <Header avatar={avatar} switchAvatar={switchAvatar} />
+      <Header avatar={avatar} switchAvatar={switchAvatar} messages={messages} />
       <Chat messages={messages} isTyping={isTyping} isWaiting={isWaiting}/>
       <Text updateMessages={updateMessages} setIsTyping={setIsTyping} setIsWaiting={setIsWaiting} messages={messages}/>
     </div>

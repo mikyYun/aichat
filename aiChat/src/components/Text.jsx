@@ -1,5 +1,6 @@
 import React from "react";
 import { sending } from "../api/fetch";
+import SendIcon from "@mui/icons-material/Send";
 
 const Text = ({ updateMessages, setIsTyping, setIsWaiting, messages }) => {
   const [message, setMessage] = React.useState("");
@@ -19,12 +20,12 @@ const Text = ({ updateMessages, setIsTyping, setIsWaiting, messages }) => {
     const groupMessages = Object.values(messages);
     let history = ``;
     groupMessages.forEach((msg) => {
-      const chat = Object.keys(msg)[0]
+      const chat = Object.keys(msg)[0];
       history += `\n${chat}`;
     });
     history += `\n${message}`;
     return history;
-  }
+  };
 
   const sendMessage = async () => {
     // console.log(message)
@@ -45,6 +46,11 @@ const Text = ({ updateMessages, setIsTyping, setIsWaiting, messages }) => {
       .catch((err) => console.error("API ERROR", err));
   };
 
+  const isEnter = (e) => {
+    const enter = e.keyCode === 13 && true;
+    if (enter) sendMessage();
+  };
+
   return (
     <div id="text">
       <input
@@ -52,8 +58,13 @@ const Text = ({ updateMessages, setIsTyping, setIsWaiting, messages }) => {
         placeholder="message..."
         value={message}
         onChange={updateMessage}
+        autoFocus
+        onKeyDown={isEnter}
       />
       <button className="send" onClick={sendMessage}>
+        <span className="icon">
+          <SendIcon />
+        </span>
         Send
       </button>
     </div>
