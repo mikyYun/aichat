@@ -22,23 +22,22 @@ app.get("/", (req, res) => {
 });
 
 app.post("/chat", (req, res) => {
-  res.send("OK")
-  // const msg = req.body.msg
-  // openai.createCompletion({
-  //   model: "text-davinci-002",
-  //   prompt: `${msg}`,
-  //   temperature: 0.9,
-  //   max_tokens: 150,
-  //   top_p: 1,
-  //   frequency_penalty: 0,
-  //   presence_penalty: 0.6,
-  //   stop: [" Human:", " AI:"],
-  // }).then(result => {
-  //   const response = result.data.choices[0].text;
-  //   // res.status(200).send({response})
-  // }).catch(err => {
-  //   res.status(503)
-  // })
+  const msg = req.body.msg
+  openai.createCompletion({
+    model: "text-davinci-002",
+    prompt: `${msg}`,
+    temperature: 0.9,
+    max_tokens: 150,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0.6,
+    stop: [" Human:", " AI:"],
+  }).then(result => {
+    const response = result.data.choices[0].text;
+    res.status(200).send({response})
+  }).catch(err => {
+    res.status(503)
+  })
 });
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));

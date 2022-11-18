@@ -11,6 +11,10 @@ import getImageNumber from "./helpers/getImage";
 function App() {
   const [messages, setMessages] = React.useState([]);
   const [avatar, setAvatar] = React.useState(1);
+  const [isTyping, setIsTyping] = React.useState(false);
+  const [isWaiting, setIsWaiting] = React.useState(false);
+
+
   const sessionStorage = window.sessionStorage;
 
   const updateMessages = (msg, isMyMessage) => {
@@ -50,8 +54,8 @@ function App() {
     <div className="App">
       <List avatar={avatar} selectAvatar={selectAvatar} />
       <Header avatar={avatar} switchAvatar={switchAvatar} />
-      <Chat messages={messages} />
-      <Text updateMessages={updateMessages} />
+      <Chat messages={messages} isTyping={isTyping} isWaiting={isWaiting}/>
+      <Text updateMessages={updateMessages} setIsTyping={setIsTyping} setIsWaiting={setIsWaiting} messages={messages}/>
     </div>
   );
 }

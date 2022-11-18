@@ -51,6 +51,13 @@
         border-radius: 50%;
       }
     }
+    button.button_switch {
+      border-radius: 15px;
+      background-color: #d5d5ff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
   }
   // CHAT
   #chat {
@@ -76,6 +83,12 @@
           background-color: rgb(193, 199, 255);
           margin-left: auto;
           border-radius: 0.5rem 0 0 0.5rem;
+        }
+        &.typing {
+          width: 3rem;
+          height: 3rem;
+          background: url("./resources/typing/TypingStatus.gif");
+          background-size: contain;
         }
       }
     }
