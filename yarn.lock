@@ -1032,7 +1032,7 @@ on-finished@2.4.1:
 
 openai@^3.1.0:
   version "3.1.0"
-  resolved "https://registry.npmjs.org/openai/-/openai-3.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/openai/-/openai-3.1.0.tgz#13bfb228cf777155b882c2deb3a03bc5094cb7b3"
   integrity sha512-v5kKFH5o+8ld+t0arudj833Mgm3GcgBnbyN9946bj6u7bvel4Yg6YFz2A4HLIYDzmMjIo0s6vSG9x73kOwvdCg==
   dependencies:
     axios "^0.26.0"
@@ -1418,7 +1418,7 @@ yargs@^17.3.1:
     y18n "^5.0.5"
     yargs-parser "^21.1.1"
 
-yarn@^1.22.19:
+yarn@^1.22.17:
   version "1.22.19"
-  resolved "https://registry.npmjs.org/yarn/-/yarn-1.22.19.tgz"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.19.tgz#4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
   integrity sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ==

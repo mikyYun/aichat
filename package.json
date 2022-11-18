@@ -8,7 +8,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon ./server/server.js",
-    "all": "concurrently \"yarn run server\" \"cd ./aiChat && yarn run build\""
+    "client": "cd aiChat/ && yarn run build",
+    "all": "concurrently \"yarn run server\" \"yarn run client\""
   },
   "repository": {
     "type": "git",
@@ -34,10 +35,5 @@
     "nodemon": "^2.0.20",
     "openai": "^3.1.0",
     "yarn": "^1.22.17"
-  },
-  "engines": {
-    "node": "16.18.1",
-    "npm": "6.14.7",
-    "yarn": "1.22.17"
   }
 }
