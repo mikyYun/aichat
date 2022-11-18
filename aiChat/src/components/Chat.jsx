@@ -22,12 +22,6 @@ const Chat = ({ messages, isTyping, isWaiting }) => {
 
   return (
     <div id="chat">
-      <div className="line">
-        <div className="chat_box">Hello</div>
-      </div>
-      <div className="line">
-        <div className="chat_box mine">Hi!</div>
-      </div>
       {drawChats()}
       {(isTyping || isWaiting ) &&  <Typing isTyping={isTyping}/>}
       <div className="bottom" ref={ref}></div>
