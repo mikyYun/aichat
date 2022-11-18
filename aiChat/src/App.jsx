@@ -14,8 +14,14 @@ function App() {
   const [isTyping, setIsTyping] = React.useState(false);
   const [isWaiting, setIsWaiting] = React.useState(false);
 
-
   const sessionStorage = window.sessionStorage;
+
+  const clearMessage = () => {
+    const confirmed = window.confirm("You want to delete all messages?");
+    if (confirmed) {
+      setMessages([]);
+    }
+  };
 
   const updateMessages = (msg, isMyMessage) => {
     setMessages((prev) => [...prev, { [msg]: isMyMessage }]);
@@ -34,9 +40,8 @@ function App() {
   };
 
   const saveMessages = () => {
-    const messageHistory = JSON.parse(sessionStorage.getItem("msg")) || {}
-    messageHistory[avatar] = messages
-
+    const messageHistory = JSON.parse(sessionStorage.getItem("msg")) || {};
+    messageHistory[avatar] = messages;
 
     sessionStorage.setItem("msg", JSON.stringify(messageHistory));
   };
@@ -46,16 +51,32 @@ function App() {
   }, [messages]);
 
   React.useEffect(() => {
-    const messageWithThisAvatar = JSON.parse(sessionStorage.getItem("msg"))[avatar];
-    messageWithThisAvatar ? setMessages(messageWithThisAvatar) : setMessages([])
+    const messageWithThisAvatar = JSON.parse(sessionStorage.getItem("msg"))[
+      avatar
+    ];
+    messageWithThisAvatar
+      ? setMessages(messageWithThisAvatar)
+      : setMessages([]);
   }, [avatar]);
 
   return (
     <div className="App">
       <List avatar={avatar} selectAvatar={selectAvatar} />
-      <Header avatar={avatar} switchAvatar={switchAvatar} messages={messages} />
-      <Chat messages={messages} isTyping={isTyping} isWaiting={isWaiting}/>
-      <Text updateMessages={updateMessages} setIsTyping={setIsTyping} setIsWaiting={setIsWaiting} messages={messages}/>
+      <div className="main_container">
+        <Header
+          avatar={avatar}
+          switchAvatar={switchAvatar}
+          messages={messages}
+          clearMessage={clearMessage}
+        />
+        <Chat messages={messages} isTyping={isTyping} isWaiting={isWaiting} />
+        <Text
+          updateMessages={updateMessages}
+          setIsTyping={setIsTyping}
+          setIsWaiting={setIsWaiting}
+          messages={messages}
+        />
+      </div>
     </div>
   );
 }

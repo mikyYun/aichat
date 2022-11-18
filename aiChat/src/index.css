@@ -19,6 +19,7 @@
   padding: 0;
   margin: 0;
   font-size: inherit;
+  transition: all .2s;
 }
 
 html,
@@ -27,10 +28,7 @@ body {
   font-size: 25px;
   width: 100vw;
   height: 100vh;
-  background-color: #2e3857;
-  /* position: relative;
-  display: flex;
-  justify-content: center; */
+  background-color: #1164a3;
 }
 
 
