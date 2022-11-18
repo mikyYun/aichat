@@ -1,4 +1,4 @@
 [build.environment]
   YARN_VERSION = "1.22.17"
-  NODE_ENV = "development"
+  NODE_ENV = "production"
   NETLIFY_USE_YARN = "true"
