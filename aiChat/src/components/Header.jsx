@@ -1,5 +1,5 @@
 import React from "react";
-import SearchIcon from "@mui/icons-material/Search";
+// import SearchIcon from "@mui/icons-material/Search";
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 const Header = ({ avatar, switchAvatar, messages, clearMessage }) => {
   
