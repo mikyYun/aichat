@@ -10,6 +10,10 @@
     "all": "concurrently \"yarn run build\" \"cd ../server && node server.js\""
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.14",
+    "@mui/material": "^5.10.14",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^2.2.0",
