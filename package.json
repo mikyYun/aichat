@@ -2,15 +2,12 @@
   "name": "aichat",
   "version": "1.0.0",
   "description": "",
-  "main": "aiChat/index.js",
+  "main": "index.js",
   "type": "module",
+  "proxy": "http://localhost:5000/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cd aiChat && vite",
-    "build": "cd aiChat && vite build",
-    "preview": "cd aiChat && vite preview",
-    "all": "concurrently \"yarn run build\" \"nodemon server/server.js\"",
-    "local": "concurrently \"nodemon server/server.js\" \" yarn run dev\""
+    "server": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -24,14 +21,6 @@
   },
   "homepage": "https://github.com/mikyYun/aichat#readme",
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/icons-material": "^5.10.14",
-    "@mui/material": "^5.10.14",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.9",
-    "@vitejs/plugin-react": "^2.2.0",
-    "axios": "^1.1.3",
     "body-parser": "^1.20.1",
     "concurrently": "^7.5.0",
     "cors": "^2.8.5",
@@ -39,10 +28,6 @@
     "express": "^4.18.2",
     "nodemon": "^2.0.20",
     "openai": "^3.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.56.1",
-    "vite": "^3.2.4",
-    "yarn": "^1.22.19"
+    "yarn": "^1.22.17"
   }
 }
