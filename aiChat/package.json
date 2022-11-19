@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "all": "concurrently \"yarn run build\" \"cd ../ && yarn run server\""
+    "all": "concurrently \"yarn run build\" \"cd ../server && node server.js\""
   },
   "dependencies": {
     "@types/react": "^18.0.25",
