@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "proxy": "http://localhost:5000/",
+  "proxy": "https://chatwithai.netlify.app/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server/server.js"
@@ -28,6 +28,9 @@
     "express": "^4.18.2",
     "nodemon": "^2.0.20",
     "openai": "^3.1.0",
+    "yarn": "^1.22.17"
+  },
+  "engines": {
     "yarn": "^1.22.17"
   }
 }
