@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
+import serverless from "serverless-http"
 
 import { Configuration, OpenAIApi } from "openai";
 
@@ -9,6 +10,8 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5001;
 const app = express();
+const router = express.Router();
+
 app.use(cors({ origin: "*" }));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -23,11 +26,13 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-app.get("/", (req, res) => {
+app.use("/", router)
+
+router.get("/", (req, res) => {
   res.send("Server On");
 });
 
-app.post("/chat", (req, res) => {
+router.post("/chat", (req, res) => {
   const msg = req.body.msg;
   openai.createCompletion({
     model: "text-davinci-002",
@@ -46,4 +51,8 @@ app.post("/chat", (req, res) => {
   });
 });
 
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+
+
+module.exports.handler = serverless(app)
+
+// app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));

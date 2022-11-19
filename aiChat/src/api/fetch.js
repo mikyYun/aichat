@@ -6,7 +6,7 @@ const headers = {
     }
 
 const sending = (msg) => {
-  return axios.post("https://chatwithai.herokuapp.com/", {msg}, {headers})
+  return axios.post("https://chatwithai.herokuapp.com/chat", {msg}, {headers})
 };
 
 export { sending };
