@@ -8,8 +8,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon ./server/server.js",
-    "client": "cd aiChat/ && yarn run build",
-    "all": "concurrently \"yarn run server\" \"yarn run client\""
+    "client-build": "cd aiChat/ && yarn run build",
+    "client": "cd aiChat/ && yarn run dev",
+    "all": "concurrently \"yarn run server\" \"yarn run client-build\"",
+    "local": "concurrently \"yarn run server\" \"yarn run client\""
   },
   "repository": {
     "type": "git",
