@@ -10,7 +10,7 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5001;
 const app = express();
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: process.env.FRONT_URL }));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Content-Type');

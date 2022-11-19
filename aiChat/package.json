@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "proxy": "https://chatwithai.herokuapp.com/",
+  "proxy": "https://apichatwithai.herokuapp.com/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
