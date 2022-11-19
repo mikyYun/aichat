@@ -9,7 +9,7 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5001;
 const app = express();
-app.use(cors());
+app.use(cors({ origin: [process.env.FRONT_URL, process.env.LOCAL_URL] }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const configuration = new Configuration({
@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/chat", (req, res) => {
-  const msg = req.body.msg
+  const msg = req.body.msg;
   openai.createCompletion({
     model: "text-davinci-002",
     prompt: `${msg}`,
@@ -34,10 +34,10 @@ app.post("/chat", (req, res) => {
     stop: [" Human:", " AI:"],
   }).then(result => {
     const response = result.data.choices[0].text;
-    res.status(200).send({response})
+    res.status(200).send({ response });
   }).catch(err => {
-    res.status(503)
-  })
+    res.status(503);
+  });
 });
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
