@@ -10,7 +10,7 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5001;
 const app = express();
-app.use(cors({ origin: process.env.FRONT_URL }));
+app.use(cors());
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -25,10 +25,12 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 app.get("/", (req, res) => {
+  console.log("ON")
   res.send("Server On");
 });
 
 app.post("/chat", (req, res) => {
+  console.log("TEST")
   const msg = req.body.msg;
   openai.createCompletion({
     model: "text-davinci-002",
