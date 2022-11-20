@@ -12,13 +12,6 @@ const List = ({ avatar, selectAvatar }) => {
     return avatarLists.map((avatar, index) => {
       return (
         <div className={selectedClassName(index)} key={index}>
-          {/* <img
-            src={`./src/resources/avatars/${avatar}.jpg`}
-            alt="avatar"
-            className="avatar"
-            value={avatar}
-            onClick={selectAvatar}
-          /> */}
           <span className={`avatar avatar${avatar}`}></span>
         </div>
       );

@@ -43,11 +43,6 @@ const Header = ({ avatar, switchAvatar, messages, clearMessage }) => {
         </button>
       </div>
       <div className="avatar_container">
-        {/* <img
-          src={`./src/resources/avatars/${avatar}.jpg`}
-          alt="avatar"
-          className="avatar"
-        /> */}
         <span className={`avatar avatar${avatar}`}>
         </span>
         <button onClick={switchAvatar} className="button_switch">
