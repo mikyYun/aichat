@@ -186,7 +186,7 @@ $sideColor: #1164a3;
   }
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .App {
     padding-left: 3rem;
     padding-right: 0;
@@ -198,6 +198,20 @@ $sideColor: #1164a3;
     }
     .main_container {
       padding: 0;
+      .header {
+        height: 100px;
+        padding-top: 50px;
+        .controller {
+          top: -15px;
+        }
+        .avatar_container {
+          font-size: 10px;
+          .avatar {
+            width: 3rem;
+            height: 3rem;
+          }
+        }
+      }
     }
   }
 }
