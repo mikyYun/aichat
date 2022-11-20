@@ -29,11 +29,11 @@ app.use(bodyParser.json());
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
-app.use(express.static(path.join(__dirname, "../aiChat/dist")));
+// app.use(express.static(path.join(__dirname, "../aiChat/dist")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../aiChat/build", "index.html"))
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../aiChat/build", "index.html"))
+// });
 
 
 const openai = new OpenAIApi(configuration);
