@@ -8,7 +8,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "node server/server.js",
-    "build": "node server/server.js"
+    "build": "node server/server.js",
+    "postinstall": "concurrently \"npm install && yarn insatll && yarn upgrade\"",
+    "start": "yarn run server" 
   },
   "repository": {
     "type": "git",
