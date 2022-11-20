@@ -1,12 +1,19 @@
-import dotenv from "dotenv";
-import express from "express";
-import cors from "cors";
-import bodyParser from "body-parser";
-import path from "path"
+const dotenv = require("dotenv");
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const {Configuration, OpenAIApi} = require("openai");
+const path = require("path");
 
-import { Configuration, OpenAIApi } from "openai";
+// import dotenv from "dotenv";
+// import express from "express";
+// import cors from "cors";
+// import bodyParser from "body-parser";
+// import path from "path"
 
-dotenv.config();
+// import { Configuration, OpenAIApi } from "openai";
+
+dotenv.config({origin: "*"});
 
 const PORT = process.env.PORT || 5001;
 const app = express();
@@ -22,11 +29,11 @@ app.use(bodyParser.json());
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
-// app.use(express.static(path.join(__dirname, "../aiChat/dist")));
+app.use(express.static(path.join(__dirname, "../aiChat/dist")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "../aiChat/build", "index.html"))
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../aiChat/build", "index.html"))
+});
 
 
 const openai = new OpenAIApi(configuration);
@@ -38,6 +45,7 @@ app.get("/", (req, res) => {
 
 app.post("/chat", (req, res) => {
   const msg = req.body.msg;
+  if (!msg) return res.status(400);
   openai.createCompletion({
     model: "text-davinci-002",
     prompt: `${msg}`,
