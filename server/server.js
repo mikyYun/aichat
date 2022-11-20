@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-
+import path from "path"
 
 import { Configuration, OpenAIApi } from "openai";
 
@@ -22,15 +22,21 @@ app.use(bodyParser.json());
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
+// app.use(express.static(path.join(__dirname, "../aiChat/dist")));
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../aiChat/build", "index.html"))
+// });
+
+
 const openai = new OpenAIApi(configuration);
 
 app.get("/", (req, res) => {
-  console.log("ON")
-  res.send("Server On");
+  console.log("SERVER ON")
+  res.status(200).send({on: "Server On"});
 });
 
 app.post("/chat", (req, res) => {
-  console.log("TEST")
   const msg = req.body.msg;
   openai.createCompletion({
     model: "text-davinci-002",
