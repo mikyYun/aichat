@@ -36,7 +36,7 @@ $sideColor: #1164a3;
       }
       .avatar_container {
         display: flex;
-        img.avatar {
+        span.avatar {
           width: 2rem;
           height: 2rem;
           border-radius: 50%;
@@ -106,6 +106,42 @@ $sideColor: #1164a3;
           width: 4rem;
           height: 4rem;
           border-radius: 50%;
+          // &.avatar1 {
+          //   background: url("./resources/avatars/1.jpg");
+          //   background-size: contain;
+          // };
+          // &.avatar2 {
+          //   background: url("./resources/avatars/2.jpg");
+          //   background-size: contain;
+          // };
+          // &.avatar3 {
+          //   background: url("./resources/avatars/3.jpg");
+          //   background-size: contain;
+          // };
+          // &.avatar4 {
+          //   background: url("./resources/avatars/4.jpg");
+          //   background-size: contain;
+          // };
+          // &.avatar5 {
+          //   background: url("./resources/avatars/5.jpg");
+          //   background-size: contain;
+          // };
+          // &.avatar6 {
+          //   background: url("./resources/avatars/6.jpg");
+          //   background-size: contain;
+          // };
+          // &.avatar7 {
+          //   background: url("./resources/avatars/7.jpg");
+          //   background-size: contain;
+          // };
+          // &.avatar8 {
+          //   background: url("./resources/avatars/8.jpg");
+          //   background-size: contain;
+          // };
+          // &.avatar9 {
+          //   background: url("./resources/avatars/9.jpg");
+          //   background-size: contain;
+          // };
         }
         button.button_switch {
           border-radius: 15px;
@@ -200,4 +236,42 @@ $sideColor: #1164a3;
       padding: 0;
     }
   }
+}
+.avatar {
+  &.avatar1 {
+    background: url("./resources/avatars/1.jpg");
+    background-size: contain;
+  };
+  &.avatar2 {
+    background: url("./resources/avatars/2.jpg");
+    background-size: contain;
+  };
+  &.avatar3 {
+    background: url("./resources/avatars/3.jpg");
+    background-size: contain;
+  };
+  &.avatar4 {
+    background: url("./resources/avatars/4.jpg");
+    background-size: contain;
+  };
+  &.avatar5 {
+    background: url("./resources/avatars/5.jpg");
+    background-size: contain;
+  };
+  &.avatar6 {
+    background: url("./resources/avatars/6.jpg");
+    background-size: contain;
+  };
+  &.avatar7 {
+    background: url("./resources/avatars/7.jpg");
+    background-size: contain;
+  };
+  &.avatar8 {
+    background: url("./resources/avatars/8.jpg");
+    background-size: contain;
+  };
+  &.avatar9 {
+    background: url("./resources/avatars/9.jpg");
+    background-size: contain;
+  };
 }
