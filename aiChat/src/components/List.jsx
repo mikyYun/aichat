@@ -12,7 +12,7 @@ const List = ({ avatar, selectAvatar }) => {
     return avatarLists.map((avatar, index) => {
       return (
         <div className={selectedClassName(index)} key={index}>
-          <span className={`avatar avatar${avatar}`}></span>
+          <span className={`avatar avatar${avatar}` onclick={selectAvatar}}></span>
         </div>
       );
     });
