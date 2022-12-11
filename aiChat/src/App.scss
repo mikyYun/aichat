@@ -136,6 +136,7 @@ $sideColor: #1164a3;
           word-wrap: break-word;
           padding: 0.5rem 1rem;
           border-radius: 0 0.5rem 0.5rem 0;
+          color: $sideColor;
           &.mine {
             background-color: $backgroundColor;
             margin-left: auto;
@@ -143,6 +144,7 @@ $sideColor: #1164a3;
             color: $sideColor;
           }
           &.typing {
+            
             width: 3rem;
             height: 2rem;
             background: url("./resources/typing/TypingStatus.gif");
