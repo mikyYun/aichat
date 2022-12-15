@@ -63,4 +63,7 @@ app.post("/chat", (req, res) => {
   });
 });
 
+app.get("*", (req, res) => {
+  res.status(403).send("Wrong access");
+})
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
